@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Storage Quotas</title>
+  </head>
+  <body>
+    <script src="storage.js"></script>
+    <script>
+      localStorage.clear();
+      allocateMB('k0', 3);
+      allocateMB('k1', 1.99);
+      allocateMB('k2', 0.01);
+      allocateMB('k3', 4.99);
+      allocateMB('k4', 0.01);
+      allocateMB('k5', 10);
+    </script>
+  </body>
+</html>

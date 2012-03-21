@@ -1,0 +1,32 @@
+<!doctype html>
+<h1>Detecting device type based on User-Agent</h1>
+
+Basic logic:
+<pre>
+...
+</pre>
+
+<h2>Device detected: <span id="device"></span></h2>
+
+<script>
+// Map of {regexp: deviceType} that should be applied against the UA.
+var DEVICE_MAPPING = {
+  'iPhone;': 'phone',
+  'iPad;': 'tablet',
+  'Android.*Mobile Safari': 'phone', // Chrome/Browser on Android phone
+  'Android.*Safari': 'tablet',       // Chrome/Browser on Android tablet
+  '.*': 'desktop'
+}
+
+function detectDevice() {
+  var ua = navigator.userAgent;
+  for (var reString in DEVICE_MAPPING) {
+    var re = new RegExp(reString);
+    if (ua.match(re)) {
+      return DEVICE_MAPPING[reString];
+    }
+  }
+}
+
+document.querySelector('#device').innerHTML = detectDevice();
+</script>

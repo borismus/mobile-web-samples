@@ -1,0 +1,83 @@
+<!doctype html>
+<link href="reset.css" rel="stylesheet"  type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|PT+Sans' rel='stylesheet' type='text/css'>
+<style>
+  /* Overall layout */
+  * {
+    /* Fix padding width issues */
+    box-sizing: border-box;
+    /* Disable text selection */
+    -user-select: none; -webkit-user-select: none;
+  }
+  article { position: absolute; height: 500px; width: 100%; background: white; padding: 5px; }
+  /* Fonts */
+  body { font-family: sans-serif; }
+  p { font-family: 'PT Sans'; }
+  h1,h2,h3 { font-family: 'Open Sans Condensed'; }
+
+  p { font-size: 14px; line-height: 16px; }
+  h1 { font-size: 30px; }
+
+  .url { color: #666; margin: 5px 0; }
+  img.author { width: 44px; }
+  img.action { float: right; width: 36px; }
+  #container {
+    height: 100%;
+    background: black;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+  }
+
+  article {
+    border: 1px solid black;
+  }
+  #a1 {
+    -webkit-transform-origin-y: 0;
+    -webkit-transform: rotateX(-40deg);
+  }
+  #a2 {
+    -webkit-transform-origin-y: 100%;
+    -webkit-transform: rotateX(70deg) scaleY(0.7);
+  }
+</style>
+
+<div id="container">
+
+<article class="story" id="a1">
+<nav>
+</nav>
+
+<div class="content">
+  <h1>So Appy Together: How Smartphones are Changing Human Evolution</h1>
+  <p class="url">bostonmagazine.com</p>
+  <p class="excerpt">Monday morning begins with a chime of bells. Blinking
+  awake, I turn toward the noise, pawing at my bedside table in search of my
+  phone. With a quick tap, the bells are silenced, as if someone has abruptly
+  cut the ropes in the belfry. I remove the ...</p>
+</div>
+
+<hr/>
+
+<div class="source">
+  <img class="author" src="res/authors/hn.png" />
+  <img class="author" src="res/authors/other.png" />
+</div>
+</article>
+
+<article class="story" id="a2">
+<div class="content">
+  <h1>New additions to the CreativeJS team! | CreativeJS</h1>
+  <p class="url">creativejs.com</p>
+  <p class="excerpt">We're very excited to announce three new authors starting
+  this week! We're welcoming Richard Davey, Tim Holman, and Simon Madine to the
+  CreativeJS team. I'm sure you've seen their work around the internet, but if
+  you need to refresh your ...</p>
+</div>
+
+<hr/>
+
+<div class="source">
+  <img class="author" src="res/authors/neave.png" />
+</div>
+</article>
+</div>

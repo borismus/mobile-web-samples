@@ -1,0 +1,18 @@
+<!doctype html>
+
+<body>
+  <span id="heading">unknown</span> +/-
+  <span id="accuracy">unknown</span> degrees
+  <script>
+    var heading = document.querySelector('#heading');
+    var accuracy = document.querySelector('#accuracy');
+    window.addEventListener('deviceorientation', function(e) {
+      if (e.webkitCompassHeading) {
+        heading.innerHTML = e.webkitCompassHeading;
+      }
+      if (e.webkitCompassHeading) {
+        accuracy.innerHTML = e.webkitCompassAccuracy;
+      }
+    });
+  </script>
+</body>

@@ -1,0 +1,32 @@
+<!doctype html>
+<h1>Mouse up/down should not fire if touchend event is handled</h1>
+Especially true since the mousedown event doesn't fire if touch is handled.
+
+
+<script>
+
+  window.addEventListener('mouseup', function(e) {
+    log('mouseup');
+  });
+  window.addEventListener('mousemove', function(e) {
+    log('mousemove');
+  });
+  window.addEventListener('mousedown', function(e) {
+    log('mousedown');
+  });
+  window.addEventListener('touchstart', function(e) {
+    log('touchstart');
+  });
+  window.addEventListener('touchmove', function(e) {
+    log('touchmove');
+  });
+  window.addEventListener('touchend', function(e) {
+    log('touchend');
+  });
+
+  function log(msg) {
+    document.body.innerHTML += '<h3>' + msg + '</h3>';
+  }
+
+</script>
+

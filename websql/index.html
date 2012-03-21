@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="lawnchair-0.6.1.js"></script>
+    <script>
+      // See how much we can allocate.
+      var store = new Lawnchair({name:'testing'}, function(store) {
+
+        // Create an object
+        var large = makeString(15);
+        var me = {key: 'myKey', value: large};
+
+        // Save it
+        store.save(me);
+
+        // Access it later... Yes even after a page refresh!
+        store.get('myKey', function(obj) {
+          console.log(obj.value.length);
+        });
+      });
+
+      function makeString(sizeMb) {
+        var buffer = '';
+        var chars = sizeMb * 1024 * 1024 / 2;
+        for (var i = 0; i < chars; i++) {
+          var index = parseInt(Math.random() * 26);
+          buffer += 'abcdefghijklmnopqrstuvwxyz'[index];
+        }
+        return buffer;
+      }
+    </script>
+  </head>
+
+  <body>
+  </body>
+</html>

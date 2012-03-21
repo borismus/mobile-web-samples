@@ -1,0 +1,44 @@
+<!doctype html>
+<div style="display:-webkit-flexbox">
+
+    <!-- flexbox item: block-level child -->
+    <div id="item1">block</div>
+
+    <!-- not a flexbox item, because it's out-of-flow -->
+    <div id="not-an-item1.5" style="position: absolute;">block</div>
+    
+    <!-- flexbox item: block-level child -->
+    <div id="item2" style="display:table">table</div>
+    
+    <!-- flexbox item: anonymous table wrapped around table-cell -->
+    <div id="item3" style="display:table-cell">table-cell</div> 
+
+    <!-- flexbox item: anonymous block around inline content -->
+    anonymous item 4
+
+    <!-- flexbox item: block-level child -->
+    <div id="item5">block</div>
+
+    <!-- flexbox item: anonymous block around inline content -->
+    anonymous item 6.1
+    <span id="item6.1">
+        text 6.2
+        <div id="not-an-item6.3">block</div>
+        text 6.4
+    </span>
+
+    <!-- flexbox item: block-level replaced element -->
+    <iframe id="item7">
+
+    <!-- flexbox item: inline-level replaced element -->
+    <img id="item7" style="display:inline">
+
+    <!-- flexbox item: inline-level replaced element -->
+    <button id="item8">button</button>
+
+    <!-- flexbox item: inline-table -->
+    <div id="item9" style="display:inline-table">table</div>
+
+    <!-- flexbox item: floated inline, which changes to a block -->
+    <span id="item10" style="float: left;">span</span>
+</div>
