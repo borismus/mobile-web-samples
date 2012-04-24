@@ -1,0 +1,24 @@
+{{#view id="create-todo"}}
+  {{view Todos.CreateTodoView id="new-todo" placeholder="What needs to be done?"}}
+{{/view}}
+
+{{#view id="stats-area"}}
+  {{view Ember.Checkbox class="mark-all-done"
+    title="Mark all as complete"
+    valueBinding="Todos.todosController.allAreDone"}}
+
+{{#view id="todos"}}
+  {{#collection id="todo-list" contentBinding="Todos.todosController" tagName="ul" itemClassBinding="content.isDone"}}
+    {{view Ember.Checkbox titleBinding="content.title" valueBinding="content.isDone"}}
+  {{/collection}}
+{{/view}}
+  
+    <!-- Insert this after the CreateTodoView and before the collection. -->
+  {{#view Todos.StatsView id="todo-stats" content=this}}
+    {{#view Todos.ClearCompletedButtonView target="Todos.todosController" action="clearCompletedTodos" classNameBindings="completedButtonClass"}}
+      Clear {{completedString}} 
+    {{/view}}
+    {{remainingString}} left
+  {{/view}}
+
+  {{/view}}

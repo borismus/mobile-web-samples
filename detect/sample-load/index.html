@@ -1,0 +1,30 @@
+<!doctype html>
+<head>
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <link rel="stylesheet" href="todos.css">
+  <style>
+    #version-picker {
+      position: fixed;
+      bottom: 5px;
+    }
+    #version-picker li {
+      display: inline;
+      list-style-type: none;
+      padding-right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="version-picker">
+    <li><a href="?device=phone">phone</a></li>
+    <li><a href="?device=tablet">tablet</a></li>
+    <li><a href="?device=desktop">desktop</a></li>
+  </ul>
+
+  <script src="common/libs/jquery.min.js"></script>
+  <script src="common/libs/ember-0.9.5.min.js"></script>
+  <script src="common/libs/modernizr.js"></script>
+  <script src="common/app.js"></script>
+  <script src="common/detect.js"></script>
+</body>

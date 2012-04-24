@@ -1,0 +1,5 @@
+Phone version!
+
+{{#view Todos.StatsView id="todo-stats" content=this}}
+  {{remainingString}} left
+{{/view}}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=1300">
+<style type="text/css" id="style">
+#device > p, #viewport > p {
+    display: none;
+}
+body { background: url(fixed/bg.png); }
+</style>
+<script type="text/javascript">
+var minWidth = 320, maxWidth = 2280;
+var rules = '';
+for (var i = minWidth; i <= maxWidth; i++) {
+    rules += '@media only screen and (device-width:'+i+'px) { #device   .px'+i+' { display: block; } } ';
+    rules += '@media only screen and (       width:'+i+'px) { #viewport .px'+i+' { display: block; } } ';
+}
+document.getElementById('style').appendChild(document.createTextNode(rules))
+</script>
+</head>
+<body>
+<h1>Media query widths with <i>no (desktop)</i> viewport</h1>
+<h2>device-width:</h2>
+<div id="device">
+<script type="text/javascript">
+var paras = ''
+for (var i = minWidth; i <= maxWidth; i++)
+    paras += '<p class="px'+i+'">'+i+'</p> ';
+document.write(paras);
+</script>
+</div>
+<h2>width:</h2>
+<div id="viewport">
+<script type="text/javascript">
+document.write(paras);
+</script>
+</div>
+</body>
+</html

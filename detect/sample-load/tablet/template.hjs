@@ -1,0 +1,7 @@
+Tablet version!
+
+{{#view id="todos"}}
+  {{#collection id="todo-list" contentBinding="Todos.todosController" tagName="ul" itemClassBinding="content.isDone"}}
+    {{view Ember.Checkbox titleBinding="content.title" valueBinding="content.isDone"}}
+  {{/collection}}
+{{/view}}

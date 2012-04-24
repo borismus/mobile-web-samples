@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<body> 
+
+	<canvas id="c" width="800" height="400"></canvas>
+
+	<div>
+		<input id="setwidth" type="checkbox"/> Set width each frame
+	</div>
+	<div id="fps"></div>
+	
+<script type="text/javascript">
+function render() {
+	var canvas, c;
+	var begin = new Date();
+	var clearRectTime = 0;
+	
+	(function setWidth() {
+		canvas = document.getElementById("c");
+		if(document.getElementById('setwidth').checked)
+			canvas.setAttribute('width', 800 + Math.random()*20);
+	})();
+
+	(function getContext() {
+		c = canvas.getContext('2d');
+	})();
+
+	(function clearRect() {
+		var before = new Date();
+		c.clearRect(0, 0, canvas.getAttribute('width'), 400);
+		clearRectTime = (new Date()).getTime() - before.getTime();
+		console.log(clearRectTime + 'ms for clearRect');
+	})();
+
+	(function draw() {
+		c.fillStyle = '#880000';
+		c.fillRect(0, 0, canvas.getAttribute('width'), 400);
+
+		c.lineWidth = 2;
+		c.beginPath();
+		for(var i = 0; i < 100; i++) {
+			c.moveTo(Math.random()*800, Math.random()*400);
+			c.lineTo(Math.random()*800, Math.random()*400);
+		}
+		c.stroke();
+	})();
+
+	var totalTime = (new Date()).getTime() - begin.getTime();
+	console.log(totalTime + 'ms for entire render');
+	
+	document.getElementById('fps').innerHTML = totalTime + 'ms total for render, '+clearRectTime+' just for clearRect.<br/>'+(1000/totalTime)+'FPS';
+}
+
+setInterval(render, 1);
+
+</script>
+
+
+</body>
+</html>
