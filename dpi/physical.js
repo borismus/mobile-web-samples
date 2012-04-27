@@ -1,4 +1,11 @@
-var STYLES = ['width', 'height'];
+var STYLES = [
+  'width', 'height',
+  'min-width', 'min-height',
+  'max-width', 'max-height',
+  'margin-left', 'margin-right', 'margin-top', 'margin-bottom',
+  'font-size', 'line-height',
+  'top', 'bottom', 'left', 'right'];
+
 var converter = new UnitConverter();
 
 /**
@@ -6,11 +13,11 @@ var converter = new UnitConverter();
  */
 function getAllElements() {
   var treeWalker = document.createTreeWalker(document.body,
-      NodeFilter.SHOW_ELEMENT, {
-        acceptNode: function(node) {
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      }, false
+    NodeFilter.SHOW_ELEMENT, {
+      acceptNode: function(node) {
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }, false
   );
   var nodeList = [];
   while(treeWalker.nextNode()) nodeList.push(treeWalker.currentNode);

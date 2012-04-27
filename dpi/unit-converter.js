@@ -14,7 +14,7 @@ var DPIs = {
 //
 //var PHYSICAL_UNITS = {'realin': 1, 'realmm': 25.4, 'realcm': 2.54};
 var PHYSICAL_UNITS = {'in': 1, 'mm': 25.4, 'cm': 2.54};
-var UNIT_REGEX = /([0-9]+)([a-z]+)/;
+var UNIT_REGEX = /([.0-9]+)([a-z]+)/;
 
 function UnitConverter() {
   var scalingFactor = null;
