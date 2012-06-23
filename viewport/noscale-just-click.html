@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+  <button style="width: 100%; height:40px;">Click</button>
+  <div id="log"></div>
+
+  <script>
+    var button = document.querySelector('button');
+
+    button.addEventListener('click', function() {
+      clickTime = new Date()
+      log('clickTime', clickTime);
+    });
+
+    function log() {
+      var args = Array.prototype.slice.call(arguments);
+      var msg = args.join(' ');
+      var el = document.querySelector('#log');
+      el.innerHTML = msg + '<br/>' + el.innerHTML;
+    }
+  </script>
+</body>
+</html

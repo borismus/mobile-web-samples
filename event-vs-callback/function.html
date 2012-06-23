@@ -1,0 +1,15 @@
+<div id="el"></div>
+<script>
+  var el = document.querySelector('#el');
+  function callback(e) {
+    // Handle the event.
+    var end = performance.webkitNow();
+    alert(end - start);
+  }
+
+  var start = performance.webkitNow();
+  // Callback a function.
+  var event = document.createEvent('Event');
+  event.target = el;
+  callback.call(el, event);
+</script>

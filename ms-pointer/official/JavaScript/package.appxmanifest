@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+
+  <Identity Name="Microsoft.SDKSamples.CanvasPaint"
+                 Version="1.0.0.0"
+                 Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+
+  <Properties>
+    <DisplayName>CanvasPaint SDK Sample</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Description>CanvasPaint SDK Sample</Description>
+    <Logo>images\storeLogo-sdk.png</Logo>
+  </Properties>
+
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Applications>
+    <Application Id="Microsoft.SDKSamples.CanvasPaint" StartPage="default.html">
+      <VisualElements DisplayName="CanvasPaint" Logo="images\squareTile-sdk.png" SmallLogo="images\smallTile-sdk.png" Description="SDK Sample" ForegroundText="dark" BackgroundColor="#FFFFFF" ToastCapable="false">
+        <DefaultTile ShortName="CanvasPaint" ShowName="allLogos"/>
+        <SplashScreen BackgroundColor="white" Image="images\splash-sdk.png"/>
+      </VisualElements>
+    </Application>
+  </Applications>
+
+</Package>

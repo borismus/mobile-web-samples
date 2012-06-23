@@ -1,0 +1,12 @@
+<script>
+  window.addEventListener('customEvent', function(e) {
+    alert(e);
+  })
+</script>
+
+<script>
+  var event = document.createEvent("Event");
+  event.initEvent("customEvent", true, true);
+  event.customData = "yourCustomData";
+  window.dispatchEvent(event);
+</script>

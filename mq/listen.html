@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>MatchMedia Listener Test</title>
+	<meta name="viewport" content="width=device-width" />
+	<style type="text/css">
+		body{
+			font-family: Helvetica, sans-serif;
+		}
+		#colorMe{
+			padding: 1.5em 1em;
+			background: red;
+			text-align: center;
+			color: #fff;
+			font-size: 1.2em;
+		}
+		@media (orientation: landscape) {
+			#colorMe {
+				background: green;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>MatchMedia Listener Test</h1>
+	<div id="colorMe"></div>
+	<script type="text/javascript">
+		function handleOrientationChange(mql) {
+			if (mql.matches) { //landsacpe
+				document.getElementById('colorMe').innerHTML = 'Landscape';
+			} else {
+				/* The device is currently in portrait orientation */
+				document.getElementById('colorMe').innerHTML = 'Portrait';
+			}
+		}
+		var	mql = window.matchMedia("(orientation: landscape)");
+		mql.addListener(handleOrientationChange);
+		window.onload = function(){
+			handleOrientationChange("(orientation: landscape)");
+		}
+	</script>
+</body>
+</html>
