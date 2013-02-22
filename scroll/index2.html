@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+  <title>Mobile Web Scrolling</title>
+  <link href='http://fonts.googleapis.com/css?family=Share' rel='stylesheet' type='text/css'>
+  <style>
+    body { font-family: 'Share' }
+    article {position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: hidden; }
+    section {float: left; height: 75%; width: 33%;}
+    h2 { font-size: 40px; }
+    section img { width: 100%; }
+    .source { position: fixed; bottom: 0px; }
+  </style>
+</head>
+
+<body>
+  <article>
+  <section style="overflow: hidden;">
+  <h2>overflow: hidden;</h2>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  </section>
+  <section style="overflow: auto;">
+  <h2>overflow: auto;</h2>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  </section>
+  <section style="overflow: auto; -webkit-overflow-scrolling: touch;">
+  <h2>overflow: auto; -webkit-overflow-scrolling: touch;</h2>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  <img src="pony.png"/> <img src="pony.png"/> <img src="pony.png"/>
+  </section>
+  </article>
+  <a class="source" href="http://he4rtofcourage.deviantart.com/art/Chrome-poni-305866510">want a pony?</a>
+</body>
