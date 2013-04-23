@@ -35,6 +35,8 @@ document.body.addEventListener('touchstart', function() {
   isTouching = true;
 });
 document.body.addEventListener('touchend', function() {
+  document.querySelector('#log').innerHTML = activeTouches.length;
+
   if (activeTouches.length == 1) {
     var delta = performance.now() - timeMoveStart;
     var frequency = touchMoveCount / delta;
