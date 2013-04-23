@@ -43,7 +43,7 @@ document.body.addEventListener('touchend', function(e) {
     isTouching = false;
   }
 });
-document.body.addEventListener('touchmove', function() {
+document.body.addEventListener('touchmove', function(e) {
   if (isTouching) {
     touchMoveCount += 1;
   }
