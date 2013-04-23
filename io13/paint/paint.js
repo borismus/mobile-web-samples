@@ -6,6 +6,11 @@ function IsAndroid() {
   return navigator.userAgent.toLowerCase().indexOf('android') >= 0;
 }
 
+function RescaleRadius(r) {
+  // Radius on Chrome for Android spans between 10 and 20.
+  return r/5;
+}
+
 var radiusSupported = false;
 var nextCount = 0;
 var touchMap = {};
@@ -52,8 +57,12 @@ function drawTouches(touches, eventType) {
     if (touch.webkitRadiusX > 1)
       radiusSupported = true;
     var radius = radiusSupported ? touch.webkitRadiusX : 15;
+    context.font = '20pt Arial';
+    context.fillStyle = 'black';
+    context.clearRect(0, 0, 100, 100);
+    context.fillText(radius, 50, 50);
     if (IsAndroid()) {
-      radius *= 0.1;
+      radius = RescaleRadius(radius);
     }
     if (radius > 100) {
       console.error('Got large webkitRadiusX: ' + touch.webkitRadiusX);
