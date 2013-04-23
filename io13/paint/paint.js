@@ -8,11 +8,11 @@ function IsAndroid() {
 
 function RescaleRadius(r) {
   // Radius on Chrome for Android varies in [80, 160]. We want to rescale this
-  // range to [10, 40].
+  // range to [5, 50].
   // First get normalized value in [0, 1].
   var p = (r - 80) / 80;
-  // Then scale out to [10, 100].
-  return 90*p + 10;
+  // Then scale out to [5, 50].
+  return 40*p + 5;
 }
 
 var radiusSupported = false;
