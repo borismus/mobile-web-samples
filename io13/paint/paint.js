@@ -11,8 +11,8 @@ function RescaleRadius(r) {
   // range to [10, 40].
   // First get normalized value in [0, 1].
   var p = (r - 80) / 80;
-  // Then scale out to [10, 40].
-  return 30*p + 10;
+  // Then scale out to [10, 100].
+  return 90*p + 10;
 }
 
 var radiusSupported = false;
