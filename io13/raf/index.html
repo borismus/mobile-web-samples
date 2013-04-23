@@ -31,8 +31,8 @@ document.body.addEventListener('touchstart', function() {
   if (!isTouching) {
     timeMoveStart = performance.now();
     touchMoveCount = 0;
+    isTouching = true;
   }
-  isTouching = true;
 });
 document.body.addEventListener('touchend', function() {
   document.querySelector('#log').innerHTML = activeTouches.length;
