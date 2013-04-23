@@ -1,13 +1,20 @@
 <!doctype html>
 <!-- Comparison of rendering in handlers vs. rendering in rAF -->
+<head>
 <style>
 html, body {
   width: 100%;
   height: 100%;
   background: black;
   color: white;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 </style>
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
 
 <div id="touch-freq"></div>
 
@@ -29,7 +36,8 @@ document.body.addEventListener('touchend', function(e) {
   if (e.touches.length == 0) {
     var delta = performance.now() - timeMoveStart;
     var frequency = touchMoveCount / delta;
-    document.querySelector('#touch-freq').innerHTML = frequency + ' Hz';
+    var formatted = (frequency * 1000).toFixed(2);
+    document.querySelector('#touch-freq').innerHTML = formatted + ' Hz';
 
     isTouching = false;
   }
@@ -40,3 +48,4 @@ document.body.addEventListener('touchmove', function() {
   }
 });
 </script>
+</body>
