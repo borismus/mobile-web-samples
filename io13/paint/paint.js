@@ -1,5 +1,9 @@
 function GetContext() {
-  return document.getElementById("canvas").getContext("2d"); 
+  return document.getElementById("canvas").getContext("2d");
+}
+
+function IsAndroid() {
+  return navigator.userAgent.toLowerCase().indexOf('android') >= 0;
 }
 
 var radiusSupported = false;
@@ -48,6 +52,9 @@ function drawTouches(touches, eventType) {
     if (touch.webkitRadiusX > 1)
       radiusSupported = true;
     var radius = radiusSupported ? touch.webkitRadiusX : 15;
+    if (IsAndroid()) {
+      radius *= 0.1;
+    }
     if (radius > 100) {
       console.error('Got large webkitRadiusX: ' + touch.webkitRadiusX);
       radius=100;
