@@ -17,6 +17,7 @@ html, body {
 <body>
 
 <div id="touch-freq"></div>
+<div id="log"></div>
 
 <script>
 var timeMoveStart = null;
@@ -33,6 +34,7 @@ document.body.addEventListener('touchstart', function() {
   isTouching = true;
 });
 document.body.addEventListener('touchend', function(e) {
+  document.querySelector('#log').innerHTML = e.touches.length;
   if (e.touches.length == 0) {
     var delta = performance.now() - timeMoveStart;
     var frequency = touchMoveCount / delta;
