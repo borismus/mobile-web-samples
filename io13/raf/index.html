@@ -24,6 +24,7 @@ var timeMoveStart = null;
 var timeMoveEnd = null;
 var touchMoveCount = 0;
 var isTouching = false;
+var activeTouches = [];
 // Track frequency of touchmove handler firing.
 
 document.body.addEventListener('touchstart', function() {
@@ -33,8 +34,8 @@ document.body.addEventListener('touchstart', function() {
   }
   isTouching = true;
 });
-document.body.addEventListener('touchend', function(e) {
-  if (e.touches.length == 0) {
+document.body.addEventListener('touchend', function() {
+  if (activeTouches.length == 1) {
     var delta = performance.now() - timeMoveStart;
     var frequency = touchMoveCount / delta;
     var formatted = (frequency * 1000).toFixed(2);
@@ -44,10 +45,10 @@ document.body.addEventListener('touchend', function(e) {
   }
 });
 document.body.addEventListener('touchmove', function(e) {
+  activeTouches = e.touches;
   if (isTouching) {
     touchMoveCount += 1;
   }
-  document.querySelector('#log').innerHTML = e.touches.length;
 });
 </script>
 </body>
