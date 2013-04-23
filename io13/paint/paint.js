@@ -7,8 +7,12 @@ function IsAndroid() {
 }
 
 function RescaleRadius(r) {
-  // Radius on Chrome for Android spans between 10 and 20.
-  return r/5;
+  // Radius on Chrome for Android varies in [80, 160]. We want to rescale this
+  // range to [10, 40].
+  // First get normalized value in [0, 1].
+  var p = (r - 80) / 80;
+  // Then scale out to [10, 40].
+  return 30*p + 10;
 }
 
 var radiusSupported = false;
@@ -57,10 +61,12 @@ function drawTouches(touches, eventType) {
     if (touch.webkitRadiusX > 1)
       radiusSupported = true;
     var radius = radiusSupported ? touch.webkitRadiusX : 15;
+    /* For debugging, output the radius we receive.
     context.font = '20pt Arial';
     context.fillStyle = 'black';
     context.clearRect(0, 0, 100, 100);
-    context.fillText(radius, 50, 50);
+    context.fillText(radius, 50, 70);
+    */
     if (IsAndroid()) {
       radius = RescaleRadius(radius);
     }
