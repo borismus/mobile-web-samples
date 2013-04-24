@@ -36,7 +36,7 @@ document.body.addEventListener('touchstart', function(e) {
   }
 });
 document.body.addEventListener('touchend', function() {
-  document.querySelector('#log').innerHTML = activeTouches.length + '<br/>';
+  document.querySelector('#log').innerHTML = activeTouches.length;
 
   if (activeTouches.length == 1) {
     var delta = performance.now() - timeMoveStart;
