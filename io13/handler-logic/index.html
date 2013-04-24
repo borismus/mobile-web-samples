@@ -112,13 +112,9 @@ window.onresize = resetCanvas;
 function onTouches(e) {
   if (e.type == 'touchstart') {
     e.preventDefault();
-    renderTouches(e.touches);
-  } else if (e.type == 'touchmove') {
-    // Render each touch on the screen.
-    renderTouches(e.touches);
-  } else if (e.type == 'touchend') {
-    renderTouches(e.touches);
   }
+  clearCanvas();
+  renderTouches(e.touches);
 }
 
 function onChangedTouches(e) {
@@ -149,8 +145,11 @@ function resetCanvas(e) {
   window.scrollTo(0,0);
 }
 
-function renderTouches(touches) {
+function clearCanvas() {
   c.clearRect(0,0,canvas.width, canvas.height); 
+}
+
+function renderTouches(touches) {
   for(var i=0; i<touches.length; i++)
   {
     var touch = touches[i]; 
@@ -167,6 +166,7 @@ function renderTouches(touches) {
 }
 
 function draw() {
+  clearCanvas();
   renderTouches(touches);
   if (!cancelRaf) {
     requestAnimFrame(draw);
