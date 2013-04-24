@@ -64,14 +64,16 @@ container;
 
 setupCanvas();
 
+var cancelRaf = false;
 var EVENTS = ['touchstart', 'touchmove', 'touchend'];
 var HANDLERS = [onRaf, onTouches, onChangedTouches];
 
 function doRaf() {
   unregisterAll();
   register(onRaf);
+  cancelRaf = false;
   touches = [];
-  requestAnimFrame(draw);
+  draw();
 }
 
 function doTouches() {
@@ -84,7 +86,7 @@ function doChangedTouches() {
   register(onChangedTouches);
 }
 
-doRaf();
+doTouches();
 
 function register(handler) {
   for (var i = 0; i < EVENTS.length; i++) {
@@ -94,6 +96,7 @@ function register(handler) {
 }
 
 function unregisterAll() {
+  cancelRaf = true;
   for (var i = 0; i < EVENTS.length; i++) {
     var eventName = EVENTS[i];
     for (var j = 0; j < HANDLERS.length; j++) {
@@ -165,7 +168,9 @@ function renderTouches(touches) {
 
 function draw() {
   renderTouches(touches);
-  requestAnimFrame(draw);
+  if (!cancelRaf) {
+    requestAnimFrame(draw);
+  }
 }
 
 function setupCanvas() {
