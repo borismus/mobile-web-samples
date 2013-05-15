@@ -48,7 +48,6 @@
   <body>
   <div id="choice">
     <input type="radio" name="group1" onclick="doTouches()" checked>Naive (e.touches)
-    <!-- <input type="radio" name="group1" onclick="doChangedTouches()"> Better (e.changedTouches) -->
     <input type="radio" name="group1" onclick="doRaf()"> RAF (requestAnimationFrame)
   </div>
     <script src="vector.js"></script>
@@ -74,7 +73,7 @@ setupCanvas();
 
 var cancelRaf = false;
 var EVENTS = ['touchstart', 'touchmove', 'touchend'];
-var HANDLERS = [onRaf, onTouches, onChangedTouches];
+var HANDLERS = [onRaf, onTouches];
 
 function doRaf() {
   unregisterAll();
@@ -87,11 +86,6 @@ function doRaf() {
 function doTouches() {
   unregisterAll();
   register(onTouches);
-}
-
-function doChangedTouches() {
-  unregisterAll();
-  register(onChangedTouches);
 }
 
 doTouches();
@@ -119,28 +113,16 @@ window.onresize = resetCanvas;
 
 function onTouches(e) {
   if (e.type == 'touchstart') {
-    e.preventDefault();
   }
+  e.preventDefault();
   clearCanvas();
   renderTouches(e.touches);
 }
 
-function onChangedTouches(e) {
-  if (e.type == 'touchstart') {
-    e.preventDefault();
-    renderTouches(e.changedTouches);
-  } else if (e.type == 'touchmove') {
-    // Render each touch on the screen.
-    renderTouches(e.changedTouches);
-  } else if (e.type == 'touchend') {
-    renderTouches([]);
-  }
-}
-
 function onRaf(e) {
   touches = e.touches;
+  e.preventDefault();
   if (e.type == 'touchstart') {
-    e.preventDefault();
   }
 }
 
