@@ -58,8 +58,7 @@ function drawTouches(touches, eventType) {
 
     // Spec says to use 1 for unknown radius, can't differentiate between that
     // and real 1 pixel radius.
-    if (touch.webkitRadiusX > 1)
-      radiusSupported = true;
+    radiusSupported = (touch.webkitRadiusX > 1);
     var radius = radiusSupported ? touch.webkitRadiusX : 15;
     /* For debugging, output the radius we receive.
     context.font = '20pt Arial';
