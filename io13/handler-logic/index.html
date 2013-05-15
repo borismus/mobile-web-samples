@@ -112,18 +112,14 @@ window.onorientationchange = resetCanvas;
 window.onresize = resetCanvas;
 
 function onTouches(e) {
-  if (e.type == 'touchstart') {
-  }
-  e.preventDefault();
   clearCanvas();
   renderTouches(e.touches);
+  e.preventDefault();
 }
 
 function onRaf(e) {
   touches = e.touches;
   e.preventDefault();
-  if (e.type == 'touchstart') {
-  }
 }
 
 function resetCanvas(e) {
